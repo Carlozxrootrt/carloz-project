@@ -1,0 +1,64 @@
+/* FileList.module.css */
+
+.fileListContainer {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px 0;
+}
+
+.fileList {
+  list-style-type: none;
+  padding: 0;
+}
+
+.fileItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease-in-out;
+}
+
+.fileItem:hover {
+  transform: translateY(-2px);
+}
+
+.fileItem span {
+  font-size: 16px;
+  color: #333;
+}
+
+.fileItem button {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.fileItem button:hover {
+  background-color: #ff3333;
+}
+
+.fileItem button:focus {
+  outline: none;
+}
+
+@media (max-width: 600px) {
+  .fileItem {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .fileItem button {
+    margin-top: 10px;
+  }
+}

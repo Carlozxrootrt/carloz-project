@@ -1,0 +1,100 @@
+/* src/styles/MediaList.module.css */
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+  padding: 20px;
+}
+
+.gridItem {
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.gridItem:hover {
+  transform: scale(1.05);
+}
+
+.imageThumbnail, .videoThumbnail {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.imageThumbnail {
+  object-fit: cover;
+}
+
+.videoThumbnail {
+  max-height: 200px;
+}
+
+.gridItem p {
+  margin: 8px 0 0;
+}
+
+.gridItem button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.gridItem button:hover {
+  background-color: darkred;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+}
+
+.modalContent {
+  position: relative;
+  margin: auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  max-width: 90%;
+  max-height: 90%;
+  overflow: auto;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal img, .modal video {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
