@@ -1,42 +1,46 @@
 // src/components/Header.js
-import React, { useState , useEffect , useRef } from 'react';
-import styles from '../styles/Header.module.css'; // Import file CSS untuk styling
-import { logout, isLoggedIn } from '../services/authService';
+import React from 'react';
+import Link from 'next/link';
+import styles from '../styles/Header.module.css';
 
-const Header = () => {
-  const [loggedIn, setLoggedIn] = useState(false);
-
-  useEffect(() => {
-    setLoggedIn(isLoggedIn());
-  }, []);
-
-  const handleLogout = () => {
-    logout();
-    setLoggedIn(false);
-  };
-
+const Header = ({ loggedIn, handleLogout }) => {
   return (
     <header className={styles.header}>
-      <h1>Keluarin</h1>
+      <h1>Carloz Project</h1>
       <nav>
         <ul className={styles.navList}>
-          <li className={styles.navItem}><a href="/" className={styles.navLink}>Home</a></li>
-          <li className={styles.navItem}><a href="/image-gallery" className={styles.navLink}>Gambar</a></li>
-          <li className={styles.navItem}><a href="/video-gallery" className={styles.navLink}>Video</a></li>
-          <li className={styles.navItem}><a href="/about" className={styles.navLink}>About</a></li>
+          <li className={styles.navItem}>
+            <Link href="/image-gallery">
+              <a className={styles.navLink}>Image Gallery</a>
+            </Link>
+          </li>
+          <li className={styles.navItem}>
+            <Link href="/video-gallery">
+              <a className={styles.navLink}>Video Gallery</a>
+            </Link>
+          </li>
+          <li className={styles.navItem}>
+            <Link href="/about">
+              <a className={styles.navLink}>About</a>
+            </Link>
+          </li>
           {loggedIn ? (
             <li className={styles.navItem}>
-              <button onClick={handleLogout} className={styles.logoutButton}>Logout</button>
+              <button className={styles.logoutButton} onClick={handleLogout}>
+                Logout
+              </button>
             </li>
           ) : (
             <li className={styles.navItem}>
-              <a href="/login" className={styles.navLink}>Login</a>
+              <Link href="/login">
+                <a className={styles.navLink}>Login</a>
+              </Link>
             </li>
           )}
         </ul>
       </nav>
     </header>
   );
-}
+};
 
 export default Header;
