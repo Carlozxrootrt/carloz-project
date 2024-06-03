@@ -1,19 +1,37 @@
+// src/components/Footer.js
 import React from 'react';
+import Link from 'next/link';
 import LocationWatcher from '../components/LocationWatcher';
 import styles from '../styles/Footer.module.css';
 
-function Footer() {
+const Footer = () => {
   return (
     <footer className={styles.footer}>
-      <p>&copy; 2024 Gambar dan Video Gratis</p>
-      <LocationWatcher />
-      <nav>
-        <ul className={styles.navList}>
-          <li className={styles.navItem}><a href="/register" className={styles.navLink}>Register</a></li>
-        </ul>
-      </nav>
+      <div className={styles.container}>
+        <p>&copy; 2024 Carloz Project. All rights reserved.</p>
+        <LocationWatcher />
+        <nav className={styles.nav}>
+          <ul>
+            <li>
+              <Link href="/register">
+                <a>Register</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/login">
+                <a>Login</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/about">
+                <a>About</a>
+              </Link>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </footer>
   );
-}
+};
 
 export default Footer;
